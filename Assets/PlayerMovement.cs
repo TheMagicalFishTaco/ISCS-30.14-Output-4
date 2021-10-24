@@ -21,15 +21,14 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
 
         //Application closes when Escape is pressed
         if (Input.GetKey(KeyCode.Escape))
-            Application.Quit();
-
-        if (transform.localPosition.y < -5)
         {
-            transform.localPosition = new Vector3(0, 3f, -5);
+            Application.Quit();            
         }
+
 
         //if-else block in charge of flipping the sprite if horizontal input is negative (horizontal input is going left)
         if (horizontalInput > 0.01f)
@@ -42,26 +41,28 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //sets the velocity of the sprite's rigidbody
-        rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
+        //rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
+        rb.velocity = new Vector2(horizontalInput * speed, verticalInput * speed);
 
-        if (Input.GetKey(KeyCode.W) && isGrounded())
-        {
-            Jump();
-        }
-        animator.SetBool("run", horizontalInput != 0);        
-        animator.SetBool("jump", !isGrounded());
+        //if (Input.GetKey(KeyCode.W))
+        //{
+        //    MoveUp();
+        //}
+        //else if (Input.GetKey(KeyCode.S))
+        //{
+        //    MoveDown();
+        //}
     }
 
-    private void Jump()
+    private void MoveUp()
     {
         //just sets the vertical velocity to speed
         rb.velocity = new Vector2(rb.velocity.x, speed);
     }
-
-    //swapped to using a raycast method to detect collisions with the ground
-    private bool isGrounded()
+    private void MoveDown()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0,Vector2.down,0.1f,groundLayer); ;
-        return raycastHit.collider != null;
+        //just sets the vertical velocity to negative speed to go down
+        rb.velocity = new Vector2(rb.velocity.x, -speed);
     }
+
 }
