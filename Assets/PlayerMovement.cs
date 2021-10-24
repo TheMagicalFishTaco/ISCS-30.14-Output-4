@@ -1,12 +1,13 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private GameObject projectile;
     private Rigidbody2D rb;
-    private Animator animator;
     private BoxCollider2D boxCollider;
+    private bool canShoot = true;
 
     //Awake method is called the moment the script is run
     private void Awake()
@@ -14,8 +15,6 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         //freeze the rotation to stop it from spinning upon colliding with something
         rb.freezeRotation = true;
-
-        animator = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
     }
     void Update()
@@ -28,41 +27,29 @@ public class PlayerMovement : MonoBehaviour
         {
             Application.Quit();            
         }
-
-
-        //if-else block in charge of flipping the sprite if horizontal input is negative (horizontal input is going left)
-        if (horizontalInput > 0.01f)
+        if (Input.GetKey(KeyCode.Space))
         {
-            transform.localScale = Vector3.one;
-        }
-        else if (horizontalInput < 0.01f)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
+            if (canShoot == true)
+            {
+                StartCoroutine(Projectile());                
+            }
 
+        }
         //sets the velocity of the sprite's rigidbody
-        //rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
         rb.velocity = new Vector2(horizontalInput * speed, verticalInput * speed);
 
-        //if (Input.GetKey(KeyCode.W))
-        //{
-        //    MoveUp();
-        //}
-        //else if (Input.GetKey(KeyCode.S))
-        //{
-        //    MoveDown();
-        //}
     }
-
-    private void MoveUp()
+    private void shootPlayerProjectile()
     {
-        //just sets the vertical velocity to speed
-        rb.velocity = new Vector2(rb.velocity.x, speed);
+        GameObject playerProjectile = Instantiate(projectile, transform.position, transform.rotation);
+        playerProjectile.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 10);
     }
-    private void MoveDown()
+    //stops the player from firing projectiles constantly
+    public IEnumerator Projectile()
     {
-        //just sets the vertical velocity to negative speed to go down
-        rb.velocity = new Vector2(rb.velocity.x, -speed);
+        shootPlayerProjectile();
+        canShoot = !canShoot;
+        yield return new WaitForSeconds(0.5f);
+        canShoot = !canShoot;
     }
-
 }
