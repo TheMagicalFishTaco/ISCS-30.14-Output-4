@@ -4,9 +4,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private float firingDelay;
     [SerializeField] private GameObject projectile;
     private Rigidbody2D rb;
-    private BoxCollider2D boxCollider;
     private bool canShoot = true;
 
     //Awake method is called the moment the script is run
@@ -15,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         //freeze the rotation to stop it from spinning upon colliding with something
         rb.freezeRotation = true;
-        boxCollider = GetComponent<BoxCollider2D>();
     }
     void Update()
     {
@@ -39,17 +38,18 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(horizontalInput * speed, verticalInput * speed);
 
     }
+    //instantiates a projectile and sets it's speed to 0 along the x-axis, and the speed variable along the y-axis
     private void shootPlayerProjectile()
     {
         GameObject playerProjectile = Instantiate(projectile, transform.position, transform.rotation);
-        playerProjectile.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 10);
+        playerProjectile.GetComponent<Rigidbody2D>().velocity = new Vector2(0, speed);
     }
     //stops the player from firing projectiles constantly
     public IEnumerator Projectile()
     {
         shootPlayerProjectile();
         canShoot = !canShoot;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(firingDelay);
         canShoot = !canShoot;
     }
 }

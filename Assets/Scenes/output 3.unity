@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 120794382}
   m_Layer: 7
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1092,7 +1092,7 @@ GameObject:
   - component: {fileID: 295982344}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1176,6 +1176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  firingDelay: 0.15
   projectile: {fileID: 3554163413360477996, guid: 6f55c926b97d09e4b9581bf8988b0de9,
     type: 3}
 --- !u!50 &295982344
@@ -1208,7 +1209,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 295982340}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 15edb96bc6126b442af4dd5abd7ecc93, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
