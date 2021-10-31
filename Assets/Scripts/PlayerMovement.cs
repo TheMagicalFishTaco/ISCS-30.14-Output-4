@@ -5,9 +5,12 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float firingDelay;
+    [SerializeField] private float spawnDelay;
     [SerializeField] private GameObject projectile;
+    [SerializeField] private GameObject[] enemyList;
     private Rigidbody2D rb;
     private bool canShoot = true;
+    private bool canSpawn = true;
 
     //Awake method is called the moment the script is run
     private void Awake()
@@ -37,6 +40,13 @@ public class PlayerMovement : MonoBehaviour
         //sets the velocity of the sprite's rigidbody
         rb.velocity = new Vector2(horizontalInput * speed, verticalInput * speed);
 
+        //spawns an enemy
+        if (canSpawn == true)
+        {
+            StartCoroutine(SpawnEnemy());            
+        }
+
+
     }
     //instantiates a projectile and sets it's speed to 0 along the x-axis, and the speed variable along the y-axis
     private void shootPlayerProjectile()
@@ -51,5 +61,13 @@ public class PlayerMovement : MonoBehaviour
         canShoot = !canShoot;
         yield return new WaitForSeconds(firingDelay);
         canShoot = !canShoot;
+    }
+    public IEnumerator SpawnEnemy()
+    {
+        GameObject enemy = Instantiate(enemyList[Random.Range(0,enemyList.Length)], new Vector3(Random.Range(-7,7), 7, 0), Quaternion.identity);
+        enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -speed / 4);
+        canSpawn = !canSpawn;
+        yield return new WaitForSeconds(spawnDelay);
+        canSpawn = !canSpawn;
     }
 }
