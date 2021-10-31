@@ -7,8 +7,7 @@ public class Projectile : MonoBehaviour
     //tells the projectile to ignore collisions with the player
     private void Start()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(transform.parent.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 
     //if the projectile collides with the border, destroy it

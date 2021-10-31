@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerScript : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float firingDelay;
@@ -52,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
     private void shootPlayerProjectile()
     {
         GameObject playerProjectile = Instantiate(projectile, transform.position, transform.rotation);
+        playerProjectile.transform.SetParent(this.transform);
         playerProjectile.GetComponent<Rigidbody2D>().velocity = new Vector2(0, speed);
     }
     //stops the player from firing projectiles constantly
@@ -64,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public IEnumerator SpawnEnemy()
     {
-        GameObject enemy = Instantiate(enemyList[Random.Range(0,enemyList.Length)], new Vector3(Random.Range(-7,7), 7, 0), Quaternion.identity);
+        GameObject enemy = Instantiate(enemyList[Random.Range(0,enemyList.Length)], new Vector3(Random.Range(-5.5f,5.5f), 7, 0), Quaternion.identity);
         enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -speed / 4);
         canSpawn = !canSpawn;
         yield return new WaitForSeconds(spawnDelay);
