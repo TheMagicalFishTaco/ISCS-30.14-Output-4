@@ -10,6 +10,10 @@ public class Projectile : MonoBehaviour
     private void Start()
     {
         Physics2D.IgnoreCollision(transform.parent.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+
+        //The following code finds gameobjects tagges as player projectiles and enemyprojectiles, and tells the current projectile
+        //to ignore collisions with them.
+        //tl;dr, stops projectiles from colliding with one another
         playerProjectile = GameObject.FindGameObjectsWithTag("PlayerProjectile");
         enemyProjectile = GameObject.FindGameObjectsWithTag("EnemyProjectile");
 

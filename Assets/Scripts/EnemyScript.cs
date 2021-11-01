@@ -24,6 +24,7 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //ignore collision with the top border, allows the enemy to enter the game screen
         Physics2D.IgnoreCollision(enemySpawn[0].GetComponent<Collider2D>(), GetComponent<Collider2D>());
 
         if (canShoot == true)
@@ -48,6 +49,8 @@ public class EnemyScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
+        //destroy the enemy if it collides with the ground or player
+        //if it's hit by a player projectile, hp is reduced by 1
         if (col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
