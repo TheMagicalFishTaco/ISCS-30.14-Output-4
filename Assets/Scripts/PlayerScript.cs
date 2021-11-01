@@ -3,9 +3,7 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    [SerializeField] private float firingDelay;
-    [SerializeField] private float spawnDelay;
+    [SerializeField] private float playerSpeed, enemySpeed, firingDelay, spawnDelay;
     [SerializeField] private GameObject projectile;
     [SerializeField] private GameObject[] enemyList;
     private Rigidbody2D rb;
@@ -38,7 +36,7 @@ public class PlayerScript : MonoBehaviour
 
         }
         //sets the velocity of the sprite's rigidbody
-        rb.velocity = new Vector2(horizontalInput * speed, verticalInput * speed);
+        rb.velocity = new Vector2(horizontalInput * playerSpeed, verticalInput * playerSpeed);
 
         //spawns an enemy
         if (canSpawn == true)
@@ -53,7 +51,8 @@ public class PlayerScript : MonoBehaviour
     {
         GameObject playerProjectile = Instantiate(projectile, transform.position, transform.rotation);
         playerProjectile.transform.SetParent(this.transform);
-        playerProjectile.GetComponent<Rigidbody2D>().velocity = new Vector2(0, speed);
+        playerProjectile.tag = "PlayerProjectile";
+        playerProjectile.GetComponent<Rigidbody2D>().velocity = new Vector2(0, playerSpeed);
     }
     //stops the player from firing projectiles constantly
     public IEnumerator Projectile()
@@ -63,10 +62,14 @@ public class PlayerScript : MonoBehaviour
         yield return new WaitForSeconds(firingDelay);
         canShoot = !canShoot;
     }
+
+    //Enemy Spawn Code is placed here since the enemy doesn't exist at the game start
+    //So attaching this code to the enemy wouldn't work since the script wouldn't be running
+    //Enemies are spawned using an array of serialized gameobjects, and a randomized x position
     public IEnumerator SpawnEnemy()
     {
         GameObject enemy = Instantiate(enemyList[Random.Range(0,enemyList.Length)], new Vector3(Random.Range(-5.5f,5.5f), 7, 0), Quaternion.identity);
-        enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -speed / 4);
+        enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -enemySpeed);
         canSpawn = !canSpawn;
         yield return new WaitForSeconds(spawnDelay);
         canSpawn = !canSpawn;
