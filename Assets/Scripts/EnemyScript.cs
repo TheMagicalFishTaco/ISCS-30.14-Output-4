@@ -7,7 +7,6 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private float projectileSpeed;
     [SerializeField] private float firingDelay;
     [SerializeField] private GameObject projectile;
-    public GameObject explosionEffect, biggerExplosionEffect;
     private Rigidbody2D rb;
     private GameObject[] enemySpawn;
     private bool canShoot = true;
@@ -36,7 +35,7 @@ public class EnemyScript : MonoBehaviour
     }
     private void shootEnemyProjectile()
     {
-        GameObject enemyProjectile = Instantiate(projectile, transform.position + transform.forward, transform.rotation);
+        GameObject enemyProjectile = Instantiate(projectile, transform.position, transform.rotation);
         enemyProjectile.transform.SetParent(this.transform);
         enemyProjectile.tag = "EnemyProjectile";
         enemyProjectile.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -projectileSpeed);
@@ -54,22 +53,25 @@ public class EnemyScript : MonoBehaviour
         //destroy the enemy if it collides with the ground or player
         //if it's hit by a player projectile, hp is reduced by 1
 
+<<<<<<< HEAD
+=======
+        //I think the explosion stuffs can be put here
+        //either instantiate an explosion sprite then destroy it after 1s or so
+        //or start an animation for the explosion
+>>>>>>> parent of a220044 (Explosion effects added)
         if (col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("Player"))
         {
-            Instantiate(biggerExplosionEffect, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
         }
         if (col.gameObject.CompareTag("PlayerProjectile"))
         {
             if (hp > 1)
             {
-                Instantiate(explosionEffect, gameObject.transform.position, gameObject.transform.rotation);
                 hp -= 1;
             }
             //enemy is destroyed when hp reaches 0
             else
             {
-                Instantiate(biggerExplosionEffect, gameObject.transform.position, gameObject.transform.rotation);
                 Destroy(gameObject);
             }
         }

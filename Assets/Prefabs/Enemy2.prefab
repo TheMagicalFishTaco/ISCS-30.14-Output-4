@@ -120,12 +120,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpeed: 2
-  firingDelay: 1
+  firingDelay: 0.75
   projectile: {fileID: 3554163413360477996, guid: 6f55c926b97d09e4b9581bf8988b0de9,
-    type: 3}
-  explosionEffect: {fileID: 5185189818094083655, guid: c13cd79e83541e44e9761c62cbd909ac,
-    type: 3}
-  biggerExplosionEffect: {fileID: 6125937300545858341, guid: c77614ce3c6282744a7c1fee0e2f2166,
     type: 3}
 --- !u!61 &-8880577741700482147
 BoxCollider2D:

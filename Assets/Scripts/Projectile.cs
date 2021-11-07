@@ -5,15 +5,11 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     private GameObject[] playerProjectile, enemyProjectile;
-    public GameObject explosionEffect;
-    private GameObject[] enemySpawn;
 
     //tells the projectile to ignore collisions with the player
     private void Start()
     {
-        enemySpawn = GameObject.FindGameObjectsWithTag("EnemySpawn");
         Physics2D.IgnoreCollision(transform.parent.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-        Physics2D.IgnoreCollision(enemySpawn[0].GetComponent<Collider2D>(), GetComponent<Collider2D>());
 
         //The following code finds gameobjects tagges as player projectiles and enemyprojectiles, and tells the current projectile
         //to ignore collisions with them.
@@ -41,10 +37,7 @@ public class Projectile : MonoBehaviour
     {
         if (col.gameObject.CompareTag("EnemySpawn") || col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("Enemy") || col.gameObject.CompareTag("Player"))
         {
-            GameObject projectileExplosion = Instantiate(explosionEffect, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
-
-
         }
     }
 }
