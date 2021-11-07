@@ -64,9 +64,15 @@ public class EnemyScript : MonoBehaviour
 
         if (col.gameObject.CompareTag("Ground"))
         {
+            Destroy(gameObject);
+        }
+
+        if (col.gameObject.CompareTag("Player"))
+        {
             Instantiate(biggerExplosionEffect, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
         }
+
         if (col.gameObject.CompareTag("PlayerProjectile"))
         {
             if (hp > 1)

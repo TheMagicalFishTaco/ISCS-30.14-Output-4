@@ -46,9 +46,13 @@ public class Projectile : MonoBehaviour
     {
         if (gameObject.tag == "PlayerProjectile")
         {
-            if (col.gameObject.CompareTag("EnemySpawn") || col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("Enemy"))
+            if (col.gameObject.CompareTag("Enemy"))
             {
                 GameObject projectileExplosion = Instantiate(explosionEffect, gameObject.transform.position, gameObject.transform.rotation);
+                Destroy(gameObject);
+            }
+            if (col.gameObject.CompareTag("EnemySpawn") || col.gameObject.CompareTag("Ground"))
+            {
                 Destroy(gameObject);
             }
         }
