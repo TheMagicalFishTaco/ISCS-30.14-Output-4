@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpeed: 2
-  firingDelay: 1
+  firingDelay: 3.5
   projectile: {fileID: 3554163413360477996, guid: 6f55c926b97d09e4b9581bf8988b0de9,
     type: 3}
   explosionEffect: {fileID: 5185189818094083655, guid: c13cd79e83541e44e9761c62cbd909ac,

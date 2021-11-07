@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    [SerializeField] private float projectileSpeed;
-    [SerializeField] private float firingDelay;
+    [SerializeField] private float projectileSpeed, firingDelay;
     [SerializeField] private GameObject projectile;
     public GameObject explosionEffect, biggerExplosionEffect;
     private Rigidbody2D rb;
-    private GameObject[] enemySpawn;
+    private GameObject[] enemySpawn, enemyProjectiles;
     private bool canShoot = true;
     private int hp = 3;
 
@@ -27,6 +26,11 @@ public class EnemyScript : MonoBehaviour
     {
         //ignore collision with the top border, allows the enemy to enter the game screen
         Physics2D.IgnoreCollision(enemySpawn[0].GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        enemyProjectiles = GameObject.FindGameObjectsWithTag("EnemyProjectile");
+        foreach (var enemyprojectile in enemyProjectiles)
+        {
+            Physics2D.IgnoreCollision(enemyprojectile.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }   
 
         //shoot projectile code reused from playerscript
         if (canShoot == true)
@@ -58,7 +62,7 @@ public class EnemyScript : MonoBehaviour
         //either instantiate an explosion sprite then destroy it after 1s or so
         //or start an animation for the explosion
 
-        if (col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("Player"))
+        if (col.gameObject.CompareTag("Ground"))
         {
             Instantiate(biggerExplosionEffect, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);

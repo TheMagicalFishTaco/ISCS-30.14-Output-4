@@ -6,9 +6,11 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float playerSpeed, enemySpeed, firingDelay, spawnDelay;
     [SerializeField] private GameObject projectile;
     [SerializeField] private GameObject[] enemyList;
+    public GameObject explosionEffect, biggerExplosionEffect;
     private Rigidbody2D rb;
     private bool canShoot = true;
     private bool canSpawn = true;
+    private int hp = 3;
 
     //Awake method is called the moment the script is run
     private void Awake()
@@ -73,5 +75,33 @@ public class PlayerScript : MonoBehaviour
         canSpawn = !canSpawn;
         yield return new WaitForSeconds(spawnDelay);
         canSpawn = !canSpawn;
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {  
+        //player is destroyed when it touches enemy, regardless of hp
+        if (col.gameObject.CompareTag("Enemy"))
+        {
+            Instantiate(biggerExplosionEffect, gameObject.transform.position, gameObject.transform.rotation);
+            transform.position = new Vector3(0, -2, 0);
+            hp = 3;
+        }
+
+        if (col.gameObject.CompareTag("EnemyProjectile"))
+        {
+            //player loses 1 hp when hit with enemy projectile
+            if (hp > 1)
+            {
+                hp -= 1;
+            }
+
+            //player is destroyed when hp reaches 0
+            else
+            {
+                Instantiate(biggerExplosionEffect, gameObject.transform.position, gameObject.transform.rotation);
+                transform.position = new Vector3(0, -2, 0);
+                hp = 3;
+            }
+        }
     }
 }
