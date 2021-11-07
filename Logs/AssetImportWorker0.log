@@ -15,11 +15,19 @@ C:/Users/Lance/Documents/GitHub/ISCS-30.14-Output-4
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
+<<<<<<< HEAD
 51339
 Successfully changed project path to: C:/Users/Lance/Documents/GitHub/ISCS-30.14-Output-4
 C:/Users/Lance/Documents/GitHub/ISCS-30.14-Output-4
 Using Asset Import Pipeline V2.
 Refreshing native plugins compatible for Editor in 49.63 ms, found 5 plugins.
+=======
+52760
+Successfully changed project path to: C:/Users/Lance/Documents/GitHub/ISCS-30.14-Output-4
+C:/Users/Lance/Documents/GitHub/ISCS-30.14-Output-4
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 45.82 ms, found 5 plugins.
+>>>>>>> parent of a220044 (Explosion effects added)
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.18f1 (a7d1c678663c)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.18f1/Editor/Data/Resources/UnitySubsystems
@@ -35,6 +43,7 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.18f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.18f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.18f1/Editor/Data/MonoBleedingEdge/etc'
+<<<<<<< HEAD
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56748
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
@@ -42,16 +51,31 @@ Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.18f1/
 Registered in 0.002273 seconds.
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 64.62 ms, found 5 plugins.
+=======
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56212
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.002093 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 40.30 ms, found 5 plugins.
+>>>>>>> parent of a220044 (Explosion effects added)
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.110 seconds
+- Completed reload, in  1.020 seconds
 Domain Reload Profiling:
+<<<<<<< HEAD
 	ReloadAssembly (1111ms)
 		BeginReloadAssembly (67ms)
+=======
+	ReloadAssembly (1020ms)
+		BeginReloadAssembly (53ms)
+>>>>>>> parent of a220044 (Explosion effects added)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
+<<<<<<< HEAD
 			CreateAndSetChildDomain (2ms)
 		EndReloadAssembly (471ms)
 			LoadAssemblies (63ms)
@@ -60,19 +84,37 @@ Domain Reload Profiling:
 			ReleaseScriptCaches (0ms)
 			RebuildScriptCaches (32ms)
 			SetupLoadedEditorAssemblies (194ms)
+=======
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (417ms)
+			LoadAssemblies (51ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (149ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (28ms)
+			SetupLoadedEditorAssemblies (163ms)
+>>>>>>> parent of a220044 (Explosion effects added)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (5ms)
 				SetLoadedEditorAssemblies (0ms)
+<<<<<<< HEAD
 				RefreshPlugins (65ms)
 				BeforeProcessingInitializeOnLoad (20ms)
 				ProcessInitializeOnLoadAttributes (76ms)
 				ProcessInitializeOnLoadMethodAttributes (27ms)
+=======
+				RefreshPlugins (40ms)
+				BeforeProcessingInitializeOnLoad (15ms)
+				ProcessInitializeOnLoadAttributes (78ms)
+				ProcessInitializeOnLoadMethodAttributes (26ms)
+>>>>>>> parent of a220044 (Explosion effects added)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
+<<<<<<< HEAD
 Registered in 0.011285 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
@@ -83,10 +125,23 @@ Mono: successfully reloaded assembly
 Domain Reload Profiling:
 	ReloadAssembly (1243ms)
 		BeginReloadAssembly (170ms)
+=======
+Registered in 0.008981 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 39.68 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.160 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1161ms)
+		BeginReloadAssembly (142ms)
+>>>>>>> parent of a220044 (Explosion effects added)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
+<<<<<<< HEAD
 			CreateAndSetChildDomain (20ms)
 		EndReloadAssembly (995ms)
 			LoadAssemblies (104ms)
@@ -103,6 +158,24 @@ Domain Reload Profiling:
 				ProcessInitializeOnLoadAttributes (212ms)
 				ProcessInitializeOnLoadMethodAttributes (14ms)
 				AfterProcessingInitializeOnLoad (9ms)
+=======
+			CreateAndSetChildDomain (18ms)
+		EndReloadAssembly (954ms)
+			LoadAssemblies (104ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (320ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (51ms)
+			SetupLoadedEditorAssemblies (361ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (40ms)
+				BeforeProcessingInitializeOnLoad (80ms)
+				ProcessInitializeOnLoadAttributes (218ms)
+				ProcessInitializeOnLoadMethodAttributes (12ms)
+				AfterProcessingInitializeOnLoad (7ms)
+>>>>>>> parent of a220044 (Explosion effects added)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (7ms)
@@ -110,14 +183,23 @@ Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+<<<<<<< HEAD
 Refreshing native plugins compatible for Editor in 1.11 ms, found 5 plugins.
+=======
+Refreshing native plugins compatible for Editor in 0.58 ms, found 5 plugins.
+>>>>>>> parent of a220044 (Explosion effects added)
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2114 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 106.0 MB.
 System memory in use after: 106.1 MB.
 
+<<<<<<< HEAD
 Unloading 43 unused Assets to reduce memory usage. Loaded Objects now: 2594.
 Total: 4.105500 ms (FindLiveObjects: 0.223200 ms CreateObjectMapping: 0.101800 ms MarkObjects: 3.686500 ms  DeleteObjects: 0.092500 ms)
+=======
+Unloading 43 unused Assets to reduce memory usage. Loaded Objects now: 2593.
+Total: 3.045100 ms (FindLiveObjects: 0.290300 ms CreateObjectMapping: 0.117000 ms MarkObjects: 2.555000 ms  DeleteObjects: 0.081500 ms)
+>>>>>>> parent of a220044 (Explosion effects added)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -134,6 +216,7 @@ AssetImportParameters requested are different than current active one (requested
 Received Import Request.
   path: Assets/Scripts/EnemyScript.cs
   artifactKey: Guid(e1335cb3433c21143b11437b31c4f08c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+<<<<<<< HEAD
 Start importing Assets/Scripts/EnemyScript.cs using Guid(e1335cb3433c21143b11437b31c4f08c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ec849035d36d94d40e174a2a341fe16') in 0.030806 seconds 
   Import took 0.034816 seconds .
 
@@ -283,3 +366,8 @@ Received Import Request.
 Start importing Assets/Prefabs/Enemy2.prefab using Guid(4973de4455c45f94b92cf93246a29b84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab9d240486e29d141b1fa1beac76fed7') in 0.011164 seconds 
   Import took 0.014873 seconds .
 
+=======
+Start importing Assets/Scripts/EnemyScript.cs using Guid(e1335cb3433c21143b11437b31c4f08c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '139ed27cb888b7f22a9e4464ee2f77ff') in 0.037295 seconds 
+  Import took 0.044632 seconds .
+
+>>>>>>> parent of a220044 (Explosion effects added)
