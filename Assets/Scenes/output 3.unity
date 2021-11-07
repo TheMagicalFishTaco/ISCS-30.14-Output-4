@@ -313,6 +313,7 @@ MonoBehaviour:
   enemyList:
   - {fileID: 320935721106780051, guid: 214527bd959b0b245ba2abace89a9016, type: 3}
   - {fileID: 1649417469674474161, guid: 4973de4455c45f94b92cf93246a29b84, type: 3}
+  - {fileID: 5522707991115053556, guid: c7a2585365b34eb4badc9f7f7bf6ed53, type: 3}
 --- !u!50 &295982344
 Rigidbody2D:
   serializedVersion: 4
