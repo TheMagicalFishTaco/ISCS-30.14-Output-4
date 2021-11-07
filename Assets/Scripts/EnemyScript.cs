@@ -53,6 +53,10 @@ public class EnemyScript : MonoBehaviour
         //destroy the enemy if it collides with the ground or player
         //if it's hit by a player projectile, hp is reduced by 1
 
+        //I think the explosion stuffs can be put here
+        //either instantiate an explosion sprite then destroy it after 1s or so
+        //or start an animation for the explosion
+
         if (col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
