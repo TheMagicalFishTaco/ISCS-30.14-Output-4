@@ -54,11 +54,18 @@ public class EnemyScript : MonoBehaviour
         //if it's hit by a player projectile, hp is reduced by 1
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         //I think the explosion stuffs can be put here
         //either instantiate an explosion sprite then destroy it after 1s or so
         //or start an animation for the explosion
 >>>>>>> parent of a220044 (Explosion effects added)
+=======
+        //I think the explosion stuffs can be put here
+        //either instantiate an explosion sprite then destroy it after 1s or so
+        //or start an animation for the explosion
+
+>>>>>>> parent of bcf1af1 (removed some comments)
         if (col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
