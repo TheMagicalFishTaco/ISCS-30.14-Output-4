@@ -77,7 +77,6 @@ public class EnemyScript : MonoBehaviour
         {
             if (hp > 1)
             {
-                Instantiate(explosionEffect, gameObject.transform.position, gameObject.transform.rotation);
                 hp -= 1;
             }
             //enemy is destroyed when hp reaches 0

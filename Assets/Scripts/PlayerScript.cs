@@ -70,7 +70,7 @@ public class PlayerScript : MonoBehaviour
     //Enemies are spawned using an array of serialized gameobjects, and a randomized x position
     public IEnumerator SpawnEnemy()
     {
-        GameObject enemy = Instantiate(enemyList[Random.Range(0,enemyList.Length)], new Vector3(Random.Range(-5.5f,5.5f), 7, 0), Quaternion.identity);
+        GameObject enemy = Instantiate(enemyList[Random.Range(0,enemyList.Length)], new Vector3(Random.Range(-8f, 8f), 7, 0), Quaternion.identity);
         enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -enemySpeed);
         canSpawn = !canSpawn;
         yield return new WaitForSeconds(spawnDelay);
